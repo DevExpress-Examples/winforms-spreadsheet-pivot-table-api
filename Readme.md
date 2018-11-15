@@ -1,3 +1,16 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [PivotCalculatedFieldActions.cs](./CS/SpreadsheetPivotTableExamples/CodeExamples/PivotCalculatedFieldActions.cs) (VB: [PivotCalculatedFieldActions.vb](./VB/SpreadsheetPivotTableExamples/CodeExamples/PivotCalculatedFieldActions.vb))
+* [PivotCalculatedItemActions.cs](./CS/SpreadsheetPivotTableExamples/CodeExamples/PivotCalculatedItemActions.cs) (VB: [PivotCalculatedItemActions.vb](./VB/SpreadsheetPivotTableExamples/CodeExamples/PivotCalculatedItemActions.vb))
+* [PivotFieldActions.cs](./CS/SpreadsheetPivotTableExamples/CodeExamples/PivotFieldActions.cs) (VB: [PivotFieldActions.vb](./VB/SpreadsheetPivotTableExamples/CodeExamples/PivotFieldActions.vb))
+* [PivotFieldGroupingActions.cs](./CS/SpreadsheetPivotTableExamples/CodeExamples/PivotFieldGroupingActions.cs) (VB: [PivotFieldGroupingActions.vb](./VB/SpreadsheetPivotTableExamples/CodeExamples/PivotFieldGroupingActions.vb))
+* [PivotTableActions.cs](./CS/SpreadsheetPivotTableExamples/CodeExamples/PivotTableActions.cs) (VB: [PivotTableActions.vb](./VB/SpreadsheetPivotTableExamples/CodeExamples/PivotTableActions.vb))
+* [PivotTableFilterActions.cs](./CS/SpreadsheetPivotTableExamples/CodeExamples/PivotTableFilterActions.cs) (VB: [PivotTableFilterActions.vb](./VB/SpreadsheetPivotTableExamples/CodeExamples/PivotTableFilterActions.vb))
+* [PivotTableFormattingActions.cs](./CS/SpreadsheetPivotTableExamples/CodeExamples/PivotTableFormattingActions.cs) (VB: [PivotTableFormattingActions.vb](./VB/SpreadsheetPivotTableExamples/CodeExamples/PivotTableFormattingActions.vb))
+* [PivotTableLayoutActions.cs](./CS/SpreadsheetPivotTableExamples/CodeExamples/PivotTableLayoutActions.cs) (VB: [PivotTableLayoutActions.vb](./VB/SpreadsheetPivotTableExamples/CodeExamples/PivotTableLayoutActions.vb))
+* [ValueFieldSettingsActions.cs](./CS/SpreadsheetPivotTableExamples/CodeExamples/ValueFieldSettingsActions.cs) (VB: [ValueFieldSettingsActions.vb](./VB/SpreadsheetPivotTableExamples/CodeExamples/ValueFieldSettingsActions.vb))
+<!-- default file list end -->
 # WinForms Spreadsheet Pivot Table API
 
 
