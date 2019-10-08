@@ -98,7 +98,7 @@ namespace SpreadsheetPivotTableExamples
                 sheet.PrintOptions.PrintGridlines = true;
 
             Worksheet active = workbook.Worksheets.ActiveWorksheet;
-            Range usedRange = active.GetUsedRange();
+            CellRange usedRange = active.GetUsedRange();
             active.SelectedCell = usedRange[usedRange.RowCount * usedRange.ColumnCount - 1].Offset(1, 1);
 
             codeEditor.AfterCompile(args.Result);
