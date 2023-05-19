@@ -14,13 +14,11 @@ using System.Windows.Forms;
 
 namespace SpreadsheetPivotTableExamples
 {
-    public partial class Form1 : Form
+    public partial class Form1 : DevExpress.XtraEditors.XtraForm
     {
         CultureInfo defaultCulture = new CultureInfo("en-US");
 
         #region Controls
-        SplitContainerControl horizontalSplitContainerControl1;
-        SplitContainerControl verticalSplitContainerControl1;
         private SpreadsheetControl spreadsheet;
         private TreeList treeList1;
         private XtraTabControl xtraTabControl1;
@@ -28,12 +26,19 @@ namespace SpreadsheetPivotTableExamples
         private RichEditControl richEditControlCS;
         private XtraTabPage xtraTabPage2;
         private RichEditControl richEditControlVB;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraLayout.SimpleLabelItem codeExampleNameLbl;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraLayout.SplitterItem splitterItem1;
+        private DevExpress.XtraLayout.SplitterItem splitterItem2;
         #endregion
-
-        LabelControl codeExampleNameLbl;
         ExampleCodeEditor codeEditor;
         ExampleEvaluatorByTimer evaluator;
         List<CodeExampleGroup> examples;
+
         bool treeListRootNodeLoading = true;
         public Form1()
         {
@@ -222,44 +227,36 @@ namespace SpreadsheetPivotTableExamples
         #region InitializeComponent
         private void InitializeComponent()
         {
-            this.horizontalSplitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.richEditControlCS = new DevExpress.XtraRichEdit.RichEditControl();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.richEditControlVB = new DevExpress.XtraRichEdit.RichEditControl();
-            this.codeExampleNameLbl = new DevExpress.XtraEditors.LabelControl();
             this.spreadsheet = new DevExpress.XtraSpreadsheet.SpreadsheetControl();
-            this.verticalSplitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
-            ((System.ComponentModel.ISupportInitialize)(this.horizontalSplitContainerControl1)).BeginInit();
-            this.horizontalSplitContainerControl1.SuspendLayout();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.codeExampleNameLbl = new DevExpress.XtraLayout.SimpleLabelItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
+            this.splitterItem2 = new DevExpress.XtraLayout.SplitterItem();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.verticalSplitContainerControl1)).BeginInit();
-            this.verticalSplitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeExampleNameLbl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitterItem2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // horizontalSplitContainerControl1
-            // 
-            this.horizontalSplitContainerControl1.CaptionImageUri.Uri = "";
-            this.horizontalSplitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.horizontalSplitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.horizontalSplitContainerControl1.Horizontal = false;
-            this.horizontalSplitContainerControl1.Location = new System.Drawing.Point(0, 0);
-            this.horizontalSplitContainerControl1.Name = "horizontalSplitContainerControl1";
-            this.horizontalSplitContainerControl1.Panel1.Controls.Add(this.xtraTabControl1);
-            this.horizontalSplitContainerControl1.Panel1.Controls.Add(this.codeExampleNameLbl);
-            this.horizontalSplitContainerControl1.Panel1.Text = "Panel1";
-            this.horizontalSplitContainerControl1.Panel2.Controls.Add(this.spreadsheet);
-            this.horizontalSplitContainerControl1.Panel2.Text = "Panel2";
-            this.horizontalSplitContainerControl1.Size = new System.Drawing.Size(989, 655);
-            this.horizontalSplitContainerControl1.SplitterPosition = 340;
-            this.horizontalSplitContainerControl1.TabIndex = 2;
-            this.horizontalSplitContainerControl1.Text = "splitContainerControl1";
             // 
             // xtraTabControl1
             // 
@@ -268,12 +265,11 @@ namespace SpreadsheetPivotTableExamples
             this.xtraTabControl1.AppearancePage.PageClient.BorderColor = System.Drawing.Color.Transparent;
             this.xtraTabControl1.AppearancePage.PageClient.Options.UseBackColor = true;
             this.xtraTabControl1.AppearancePage.PageClient.Options.UseBorderColor = true;
-            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraTabControl1.HeaderAutoFill = DevExpress.Utils.DefaultBoolean.True;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 44);
+            this.xtraTabControl1.Location = new System.Drawing.Point(12, 48);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(989, 266);
+            this.xtraTabControl1.Size = new System.Drawing.Size(878, 295);
             this.xtraTabControl1.TabIndex = 11;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -285,21 +281,20 @@ namespace SpreadsheetPivotTableExamples
             this.xtraTabPage1.Appearance.HeaderActive.Options.UseFont = true;
             this.xtraTabPage1.Controls.Add(this.richEditControlCS);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(983, 238);
+            this.xtraTabPage1.Size = new System.Drawing.Size(876, 270);
             this.xtraTabPage1.Text = "C#";
             // 
             // richEditControlCS
             // 
             this.richEditControlCS.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Draft;
             this.richEditControlCS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richEditControlCS.EnableToolTips = true;
+            this.richEditControlCS.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
             this.richEditControlCS.Location = new System.Drawing.Point(0, 0);
             this.richEditControlCS.Name = "richEditControlCS";
-            this.richEditControlCS.Options.Bookmarks.ConflictNameResolution = ConflictNameAction.Skip;
-            this.richEditControlCS.Options.Comments.ShowAllAuthors = false;
-            this.richEditControlCS.Options.Export.PlainText.ExportFinalParagraphMark = DevExpress.XtraRichEdit.Export.PlainText.ExportFinalParagraphMark.Never;
+            this.richEditControlCS.Options.Annotations.ShowAllAuthors = false;
+            this.richEditControlCS.Options.Bookmarks.ConflictNameResolution = DevExpress.XtraRichEdit.ConflictNameAction.Skip;
             this.richEditControlCS.Options.HorizontalRuler.Visibility = DevExpress.XtraRichEdit.RichEditRulerVisibility.Hidden;
-            this.richEditControlCS.Size = new System.Drawing.Size(983, 238);
+            this.richEditControlCS.Size = new System.Drawing.Size(876, 270);
             this.richEditControlCS.TabIndex = 14;
             // 
             // xtraTabPage2
@@ -308,94 +303,150 @@ namespace SpreadsheetPivotTableExamples
             this.xtraTabPage2.Appearance.HeaderActive.Options.UseFont = true;
             this.xtraTabPage2.Controls.Add(this.richEditControlVB);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(983, 238);
+            this.xtraTabPage2.Size = new System.Drawing.Size(982, 236);
             this.xtraTabPage2.Text = "VB";
             // 
             // richEditControlVB
             // 
             this.richEditControlVB.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Draft;
             this.richEditControlVB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richEditControlVB.EnableToolTips = true;
+            this.richEditControlVB.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
             this.richEditControlVB.Location = new System.Drawing.Point(0, 0);
             this.richEditControlVB.Name = "richEditControlVB";
-            this.richEditControlVB.Options.Bookmarks.ConflictNameResolution = ConflictNameAction.Skip;
-            this.richEditControlVB.Options.Comments.ShowAllAuthors = false;
-            this.richEditControlVB.Options.Export.PlainText.ExportFinalParagraphMark = DevExpress.XtraRichEdit.Export.PlainText.ExportFinalParagraphMark.Never;
+            this.richEditControlVB.Options.Annotations.ShowAllAuthors = false;
+            this.richEditControlVB.Options.Bookmarks.ConflictNameResolution = DevExpress.XtraRichEdit.ConflictNameAction.Skip;
             this.richEditControlVB.Options.HorizontalRuler.Visibility = DevExpress.XtraRichEdit.RichEditRulerVisibility.Hidden;
-            this.richEditControlVB.Size = new System.Drawing.Size(983, 238);
+            this.richEditControlVB.Size = new System.Drawing.Size(982, 236);
             this.richEditControlVB.TabIndex = 15;
-            // 
-            // codeExampleNameLbl
-            // 
-            this.codeExampleNameLbl.Appearance.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.codeExampleNameLbl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.codeExampleNameLbl.Location = new System.Drawing.Point(0, 0);
-            this.codeExampleNameLbl.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.codeExampleNameLbl.Name = "codeExampleNameLbl";
-            this.codeExampleNameLbl.Padding = new System.Windows.Forms.Padding(0, 0, 0, 12);
-            this.codeExampleNameLbl.Size = new System.Drawing.Size(72, 44);
-            this.codeExampleNameLbl.TabIndex = 10;
-            this.codeExampleNameLbl.Text = "label1";
             // 
             // spreadsheet
             // 
-            this.spreadsheet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.spreadsheet.Location = new System.Drawing.Point(0, 0);
+            this.spreadsheet.Location = new System.Drawing.Point(12, 357);
             this.spreadsheet.Name = "spreadsheet";
             this.spreadsheet.Options.Culture = new System.Globalization.CultureInfo("ru-RU");
             this.spreadsheet.Options.Export.Csv.Culture = new System.Globalization.CultureInfo("");
             this.spreadsheet.Options.Export.Txt.Culture = new System.Globalization.CultureInfo("");
+            this.spreadsheet.Options.Import.Csv.AutoDetectDelimiter = false;
             this.spreadsheet.Options.Import.Csv.Culture = new System.Globalization.CultureInfo("");
             this.spreadsheet.Options.Import.Csv.Delimiter = ',';
+            this.spreadsheet.Options.Import.Txt.AutoDetectDelimiter = false;
             this.spreadsheet.Options.Import.Txt.Culture = new System.Globalization.CultureInfo("");
             this.spreadsheet.Options.Import.Txt.Delimiter = ',';
             this.spreadsheet.Options.View.Charts.Antialiasing = DevExpress.XtraSpreadsheet.DocumentCapability.Enabled;
-            this.spreadsheet.Size = new System.Drawing.Size(989, 340);
+            this.spreadsheet.Size = new System.Drawing.Size(878, 286);
             this.spreadsheet.TabIndex = 5;
-            // 
-            // verticalSplitContainerControl1
-            // 
-            this.verticalSplitContainerControl1.CaptionImageUri.Uri = "";
-            this.verticalSplitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.verticalSplitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.verticalSplitContainerControl1.Location = new System.Drawing.Point(0, 0);
-            this.verticalSplitContainerControl1.Name = "verticalSplitContainerControl1";
-            this.verticalSplitContainerControl1.Panel1.Controls.Add(this.horizontalSplitContainerControl1);
-            this.verticalSplitContainerControl1.Panel1.Text = "Panel1";
-            this.verticalSplitContainerControl1.Panel2.Controls.Add(this.treeList1);
-            this.verticalSplitContainerControl1.Panel2.Text = "Panel2";
-            this.verticalSplitContainerControl1.Size = new System.Drawing.Size(1212, 655);
-            this.verticalSplitContainerControl1.SplitterPosition = 218;
-            this.verticalSplitContainerControl1.TabIndex = 0;
-            this.verticalSplitContainerControl1.Text = "verticalSplitContainerControl1";
             // 
             // treeList1
             // 
             this.treeList1.Appearance.FocusedCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Underline);
             this.treeList1.Appearance.FocusedCell.Options.UseFont = true;
-            this.treeList1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeList1.Location = new System.Drawing.Point(0, 0);
+            this.treeList1.Location = new System.Drawing.Point(904, 12);
             this.treeList1.Name = "treeList1";
-            this.treeList1.Size = new System.Drawing.Size(218, 655);
+            this.treeList1.Size = new System.Drawing.Size(296, 631);
             this.treeList1.TabIndex = 11;
+            // 
+            // layoutControl1
+            // 
+            this.layoutControl1.Controls.Add(this.treeList1);
+            this.layoutControl1.Controls.Add(this.spreadsheet);
+            this.layoutControl1.Controls.Add(this.xtraTabControl1);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(359, 72, 650, 400);
+            this.layoutControl1.Root = this.Root;
+            this.layoutControl1.Size = new System.Drawing.Size(1212, 655);
+            this.layoutControl1.TabIndex = 1;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.codeExampleNameLbl,
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.splitterItem1,
+            this.splitterItem2});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(1212, 655);
+            this.Root.TextVisible = false;
+            // 
+            // codeExampleNameLbl
+            // 
+            this.codeExampleNameLbl.AllowHotTrack = false;
+            this.codeExampleNameLbl.AppearanceItemCaption.Font = new System.Drawing.Font("Arial", 20.25F);
+            this.codeExampleNameLbl.AppearanceItemCaption.Options.UseFont = true;
+            this.codeExampleNameLbl.Location = new System.Drawing.Point(0, 0);
+            this.codeExampleNameLbl.Name = "codeExampleNameLbl";
+            this.codeExampleNameLbl.Size = new System.Drawing.Size(882, 36);
+            this.codeExampleNameLbl.TextSize = new System.Drawing.Size(335, 32);
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.xtraTabControl1;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 36);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(882, 299);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.spreadsheet;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 345);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(882, 290);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.treeList1;
+            this.layoutControlItem3.Location = new System.Drawing.Point(892, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(300, 635);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // splitterItem1
+            // 
+            this.splitterItem1.AllowHotTrack = true;
+            this.splitterItem1.Location = new System.Drawing.Point(882, 0);
+            this.splitterItem1.Name = "splitterItem1";
+            this.splitterItem1.Size = new System.Drawing.Size(10, 635);
+            // 
+            // splitterItem2
+            // 
+            this.splitterItem2.AllowHotTrack = true;
+            this.splitterItem2.Location = new System.Drawing.Point(0, 335);
+            this.splitterItem2.Name = "splitterItem2";
+            this.splitterItem2.Size = new System.Drawing.Size(882, 10);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1212, 655);
-            this.Controls.Add(this.verticalSplitContainerControl1);
+            this.Controls.Add(this.layoutControl1);
             this.Name = "Form1";
             this.Text = "Pivot Tables";
-            ((System.ComponentModel.ISupportInitialize)(this.horizontalSplitContainerControl1)).EndInit();
-            this.horizontalSplitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.verticalSplitContainerControl1)).EndInit();
-            this.verticalSplitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.codeExampleNameLbl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitterItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
