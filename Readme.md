@@ -22,7 +22,7 @@ You can modify the code and watch the result. If an error occurs during compilat
 
 * [Pivot Tables in Spreadsheet Documents](https://docs.devexpress.com/WindowsForms/114770/controls-and-libraries/spreadsheet/pivot-table-overview)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-spreadsheet-pivot-table-api&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-spreadsheet-pivot-table-api&~~~was_helpful=no)
 
